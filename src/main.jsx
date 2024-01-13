@@ -4,6 +4,7 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import './index.css'
 import Home from './routes/Home.jsx'
 import Login from './routes/Login.jsx'
+import SuccessStory from './routes/SuccessStory.jsx'
 // import App from './App.jsx'
 
 const router = createBrowserRouter([
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path:'/login',
     element:<Login />
+  },
+  {
+    path:'/success-stories',
+    element:<SuccessStory/>
   }
 ])
 
