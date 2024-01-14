@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import {motion} from 'framer-motion'
+import Modal from './Modal'
 
 export default function Card() {
     return (
@@ -26,7 +27,8 @@ export default function Card() {
                     </div>
                 </div>
                 <p>If a dog chews shoes whose shoes does he choose? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, consectetur! Aliquid eos, voluptates nihil iste iusto tempora doloribus odio eaque reiciendis! Et quia hic ducimus culpa illo natus nihil sint?</p>
-                <Link to='/' className='text-base font-semibold hover:text-blue-500'>See More</Link>                
+                <button className="btn hover:text-blue-700 hover:bg-blue-200 hover:font-bold" onClick={()=>document.getElementById('my_modal_1').showModal()}><span>See More</span></button>
+                <Modal />
             </div>
         </div>
         </motion.div>
