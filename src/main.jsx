@@ -5,6 +5,7 @@ import './index.css'
 import Home from './routes/Home.jsx'
 import Login from './routes/Login.jsx'
 import SuccessStory from './routes/SuccessStory.jsx'
+import FoundPet from './routes/FoundPet.jsx'
 // import App from './App.jsx'
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path:'/success-stories',
     element:<SuccessStory/>
+  },
+  {
+    path:'/found-pet',
+    element:<FoundPet/>
   }
 ])
 

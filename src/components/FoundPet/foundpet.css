@@ -1,0 +1,12 @@
+.found__pet-img{
+    z-index: 1;
+    background-image: url(https://static.foxbusiness.com/foxbusiness.com/content/uploads/2022/04/iStock-1324099927.jpg);
+    background: linear-gradient(to left, rgba(255,0,0,0),rgb(0,0,0));
+    min-height: 500px;
+    padding: 72px;
+}
+
+.custom__img{
+    height: 45%;
+    align-items: center;
+}
