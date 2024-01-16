@@ -1,5 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 import loginSVG from '/Fingerprint-rafiki.svg'
 import { useFormik } from "formik";
+import { Link } from 'react-router-dom';
 import * as yup from 'yup'
 const schema = yup.object().shape({
   email:yup.string().email("Enter a valid email address").required('This field is required'),
@@ -17,16 +19,16 @@ export default function Login() {
     }
   });
   return (
-    <section className='absolute w-fit h-fit m-auto inset-0 shadow-2xl bg-slate-900 rounded-lg'>
+    <section className='absolute w-fit h-fit m-auto inset-0 shadow-2xl bg-slate-200 rounded-lg'>
       <div className="m-2 relative h-[80vh] w-[90vw] flex items-center justify-center mx-auto">
         <img className='w-0 md:w-[50%] p-3' src={loginSVG} alt="login svg" />
         <form className=" h-full md:w-[50%] w-full mx-auto border-none md:border-l-2 border-slate-100 flex flex-col pl-7 gap-2 justify-center" onSubmit={formik.handleSubmit}>
-          <div className="p-2">
+          <div className="">
           <label className="block" htmlFor="email">
             Email
           </label>
           <input
-            className=" block p-2 rounded-md w-3/4"
+            className=" block p-2 rounded-md w-3/4 input input-bordered input-primary"
             type="email"
             name="email"
             id="email"
@@ -34,14 +36,14 @@ export default function Login() {
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             />
-            {formik.touched.email && formik.errors.email?(<>{formik.errors.email}</>):null}
+            {formik.touched.email && formik.errors.email?(<div className='text-red-500'>{formik.errors.email}</div>):null}
             </div>
-          <div className="p-2">
+          <div className="">
             <label className="block" htmlFor="password">
               Password
             </label>
             <input
-              className="block p-2 rounded-md w-3/4"
+              className="block p-2 rounded-md w-3/4 input input-bordered input-primary invalid:input-error"
               type="password"
               name="password"
               id="password"
@@ -49,9 +51,15 @@ export default function Login() {
               value={formik.values.password}
               onChange={formik.handleChange}
             />
-            {formik.touched.password && formik.errors.password?(<>{formik.errors.password}</>):null}
+            {formik.touched.password && formik.errors.password?(<div className='text-red-500'>{formik.errors.password}</div>):null}
           </div>
-          <button type='submit' className="btn btn-primary ml-2 mt-2 w-3/5 ">Login</button>
+          <button type='submit' className="btn btn-primary mt-2 w-3/4 text-white text-xl font-semibold">Login</button>
+          <div className='mt-2'>
+            <span>
+              Don't have an account yet? 
+              <Link to={'/signup'} className='text-blue-700 font-semibold hover:text-blue-500'> Sign Up</Link>
+            </span>
+          </div>
         </form>
       </div>
     </section>
