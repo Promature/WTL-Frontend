@@ -24,19 +24,26 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Homepage</a>
+              <a href="/">Homepage</a>
             </li>
             <li>
-              <a>Portfolio</a>
+              <a href="/found-pet">Found-Pet</a>
             </li>
             <li>
-              <a>About</a>
+              <a href="/lost-pet">Lost-Pet</a>
+            </li>
+            <li>
+              <a href="/success-stories">Success-Stories</a>
+            </li>
+            <li>
+              <a href="/about">About</a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+      <div className="navbar-center flex items-center">
+        <img src="/logo-no-background.svg" className="max-h-10"/>
+        <a href="/" className="btn btn-ghost font-bold text-xl ml-[-96px]">Pet-Reunite</a>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">

@@ -1,14 +1,32 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './routes/Home.jsx'
+import Login from './routes/Login.jsx'
+import SuccessStory from './routes/SuccessStory.jsx'
+import Signup from './routes/Signup.jsx'
+import FoundPet from './routes/FoundPet.jsx'
+import About from './routes/About.jsx'
+import Layout from './components/Layout.jsx';
+
 export default function App() {
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="*"
+          element={
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/success-stories" element={<SuccessStory />} />
+                <Route path="/found-pet" element={<FoundPet />} />
+                <Route path="/about" element={<About />} />
+              </Routes>
+            </Layout>
+          }
+        />
+      </Routes>
+    </Router>
+  );
 }
