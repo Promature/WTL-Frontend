@@ -7,6 +7,7 @@ import Login from './routes/Login.jsx'
 import SuccessStory from './routes/SuccessStory.jsx'
 import Signup from './routes/Signup.jsx'
 import FoundPet from './routes/FoundPet.jsx'
+import About from './routes/About.jsx'
 // import App from './App.jsx'
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path:'/found-pet',
     element:<FoundPet/>
+  },
+  {
+    path:'/about',
+    element:<About />
   }
 ])
 
