@@ -22,13 +22,13 @@ export default function Login() {
     <section className='absolute w-fit h-fit m-auto inset-0 shadow-2xl bg-slate-200 rounded-lg'>
       <div className="m-2 relative h-[80vh] w-[90vw] flex items-center justify-center mx-auto">
         <img className='w-0 md:w-[50%] p-3' src={loginSVG} alt="login svg" />
-        <form className=" h-full md:w-[50%] w-full mx-auto border-none md:border-l-2 border-slate-100 flex flex-col pl-7 gap-2 justify-center" onSubmit={formik.handleSubmit}>
-          <div className="">
+        <form className=" h-full md:w-[50%] w-full items-center mx-auto border-none md:border-l-2 border-slate-100 flex flex-col gap-2 justify-center" onSubmit={formik.handleSubmit}>
+          <div className="flex flex-col mx-auto w-fit">
           <label className="block" htmlFor="email">
             Email
           </label>
           <input
-            className=" block p-2 rounded-md w-3/4 input input-bordered input-primary"
+            className=" block p-2 rounded-md w-[70dvw] md:w-[20rem] input input-bordered input-primary"
             type="email"
             name="email"
             id="email"
@@ -38,12 +38,12 @@ export default function Login() {
             />
             {formik.touched.email && formik.errors.email?(<div className='text-red-500'>{formik.errors.email}</div>):null}
             </div>
-          <div className="">
+          <div className="flex flex-col mx-auto w-fit">
             <label className="block" htmlFor="password">
               Password
             </label>
             <input
-              className="block p-2 rounded-md w-3/4 input input-bordered input-primary invalid:input-error"
+              className="block p-2 rounded-md w-[70dvw] md:w-[20rem] input input-bordered input-primary invalid:input-error"
               type="password"
               name="password"
               id="password"
@@ -53,7 +53,7 @@ export default function Login() {
             />
             {formik.touched.password && formik.errors.password?(<div className='text-red-500'>{formik.errors.password}</div>):null}
           </div>
-          <button type='submit' className="btn btn-primary mt-2 w-3/4 text-white text-xl font-semibold">Login</button>
+          <button type='submit' className="btn btn-primary mt-2 w-[70dvw] rounded-md md:w-[20rem] text-white text-xl font-semibold">Login</button>
           <div className='mt-2'>
             <span>
               Don't have an account yet? 

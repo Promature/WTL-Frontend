@@ -1,8 +1,7 @@
-import React from 'react'
 import './foundpet.css';
 export default function Petform() {
     return (
-        <div className="flex grid grid-cols-2 bg-white">
+        <div className="grid grid-cols-2 bg-white">
             <div className='p-8 '>
                 <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                     <li>
@@ -60,7 +59,7 @@ export default function Petform() {
                         <div className="timeline-start md:text-end mb-10">
                             <time className="font-mono italic">Step 5</time>
                             <div className="text-xl font-black">Take care of pet</div>
-                            Don't let them feel lonely. Spend more time with pet and have fun.
+                            Don&apos;t let them feel lonely. Spend more time with pet and have fun.
                         </div>
                     </li>
                 </ul>
@@ -122,7 +121,7 @@ export default function Petform() {
                                 <div className="label">
                                     <span className="label-text">Dsecription</span>
                                 </div>
-                                <textarea className="textarea textarea-bordered" placeholder="Bio"></textarea>
+                                <textarea className="textarea textarea-bordered textarea-xl w-full" placeholder="Bio"></textarea>
                             </label>
                         </div>
                         <div className='col-span-2'>
