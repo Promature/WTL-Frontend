@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 .found__pet-img{
     z-index: 1;
     background-image: url(https://static.foxbusiness.com/foxbusiness.com/content/uploads/2022/04/iStock-1324099927.jpg);
@@ -7,6 +8,19 @@
 }
 
 .custom__img{
-    height: 45%;
+    height: 40%;
     align-items: center;
+}
+.custom__hero{
+    background-image: url(/petBg1.png);
+    background-size: cover;  
+}
+.custom__hero-title,
+.custom__hero-subtitle{
+    font-family: 'Concert One', sans-serif;
+}
+
+textarea{
+    resize: none;
+    height: 8rem;
 }

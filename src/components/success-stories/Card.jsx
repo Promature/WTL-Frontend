@@ -1,8 +1,8 @@
 // import { Link } from 'react-router-dom'
 import {motion} from 'framer-motion'
-import Modal from './Modal'
+import Modal from '../Modal'
 
-export default function Card() {
+export default function Card({name, addr, posted_date,desc}) {
     return (
         <motion.div
         initial="hidden"
@@ -19,15 +19,18 @@ export default function Card() {
             <div className="card-body">
                 <div className='flex justify-between'>
                     <div>
-                        <h3 className='card-title'>Sullie</h3>
-                        <h4>Mexico</h4>
+                        <h3 className='card-title'>{name}</h3>
+                        <h4>{addr}</h4>
                     </div>
                     <div>
-                        <h4>2 days ago</h4>
+                        <h4>{posted_date}</h4>
                     </div>
                 </div>
-                <p>If a dog chews shoes whose shoes does he choose? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, consectetur! Aliquid eos, voluptates nihil iste iusto tempora doloribus odio eaque reiciendis! Et quia hic ducimus culpa illo natus nihil sint?</p>
-                <button className="btn hover:text-blue-700 hover:bg-blue-200 hover:font-bold" onClick={()=>document.getElementById('my_modal_1').showModal()}><span>See More</span></button>
+                <p>{desc}</p>
+                <button className="btn hover:text-blue-700 hover:bg-blue-200 hover:font-bold" 
+                onClick={
+                    ()=> document.getElementById('my_modal_1').showModal()
+                    } ><span>See More</span></button>
                 <Modal />
             </div>
         </div>

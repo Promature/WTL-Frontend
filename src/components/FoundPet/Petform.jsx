@@ -24,7 +24,7 @@ export default function Petform() {
                         <div className="timeline-end mb-10">
                             <time className="font-mono italic">Step 2</time>
                             <div className="text-xl font-black">Register the pet on PetReunite</div>
-                            Frantic parents may be sharing pics of their missing pet and you can help make the critical connection. Take a photo of the found pet, upload it, and search the PetReunite Lost database. If there’s no match, create a free PetReunite Lost found pet flyer to share on social media and Nextdoor pages in your area.
+                            Take a photo of the found pet, upload it, and search the PetReunite Lost database. If there’s no match, create a free PetReunite Lost found pet flyer to share on social media and Nextdoor pages in your area.
                         </div>
                         <hr />
                     </li>
@@ -36,7 +36,7 @@ export default function Petform() {
                         <div className="timeline-start md:text-end mb-10">
                             <time className="font-mono italic">Step 3</time>
                             <div className="text-xl font-black">Look for the identification</div>
-                            If you can safely restrain the pet, check for an ID tag on their collar and look for contact information. You can also take them to a Petco or other pet retailer, vet office, or animal shelter to scan for a microchip.
+                            If you can safely restrain the pet, check for an ID tag on their collar and look for contact information. You can also take them to a pet retailer, vet office, or animal shelter to scan for a microchip.
                         </div>
                         <hr />
                     </li>
@@ -48,7 +48,7 @@ export default function Petform() {
                         <div className="timeline-end mb-10">
                             <time className="font-mono italic">Step 4</time>
                             <div className="text-xl font-black">Make a call</div>
-                            Contact your local animal shelter, non-emergency police number or animal control office, as they might know if a dog or cat has been reported missing and can take a found pet report. If someone contacts you to claim their pet, be sure to confirm proof of ownership (i.e., veterinary records, pet’s photo on your phone, etc.).
+                            Contact your local animal shelter, non-emergency police number or animal control office. If someone contacts you to claim their pet, be sure to confirm proof of ownership (i.e., veterinary records, pet’s photo on your phone, etc.).
                         </div>
                         <hr />
                     </li>
