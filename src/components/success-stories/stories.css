@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+.story__header{
+    background-image: url(/successBg.png);
+    background-size: cover;
+    height:44rem; 
+    font-family: 'Concert One', sans-serif; 
+}
