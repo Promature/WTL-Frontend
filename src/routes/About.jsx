@@ -20,13 +20,13 @@ const About = () => {
         </div>
         
         {/* TEAM SECTION */}
-        <div className="pt-16 h-[100vh]">
+        <div className="pt-16 mb-16">
             <div className="mb-16">
                 <p className="text-4xl text-center font-semibold">Meet The Founders & Developers !</p>
                 <hr className="w-2/5 mt-8 mx-auto border-2 border-gray-400"/>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-16 md:gap-0 justify-center pb-16">
+            <div className="grid md:grid-cols-3 gap-16 md:gap-0 justify-center">
 
                 <div>
                     <div className="w-full avatar justify-center">

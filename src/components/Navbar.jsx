@@ -42,7 +42,7 @@ export default function Navbar() {
         </div>
       </div>
       <div className="navbar-center flex items-center">
-        <img src="/logo-no-background.svg" className="max-h-10"/>
+        <a href="/"><img src="/logo-no-background.svg" className="max-h-10"/></a>
         <a href="/" className="btn btn-ghost font-bold text-xl ml-[-96px]">Pet-Reunite</a>
       </div>
       <div className="navbar-end">
