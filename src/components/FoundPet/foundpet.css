@@ -7,6 +7,10 @@
     padding: 72px;
 }
 
+.custom__img{
+    height: 40%;
+    align-items: center;
+}
 .custom__hero{
     background-image: url(/petBg1.png);
     background-size: cover;  
