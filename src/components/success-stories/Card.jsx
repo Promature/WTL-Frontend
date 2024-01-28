@@ -2,7 +2,7 @@
 import {motion} from 'framer-motion'
 import Modal from '../Modal'
 
-export default function Card({name, addr, posted_date,desc}) {
+export default function Card({key,name, addr, posted_date,desc,img}) {
     return (
         <motion.div
         initial="hidden"
@@ -26,12 +26,12 @@ export default function Card({name, addr, posted_date,desc}) {
                         <h4>{posted_date}</h4>
                     </div>
                 </div>
-                <p>{desc}</p>
+                <p>{desc.slice(0,200)}...</p>
                 <button className="btn hover:text-blue-700 hover:bg-blue-200 hover:font-bold" 
                 onClick={
-                    ()=> document.getElementById('my_modal_1').showModal()
+                    ()=> document.getElementById(`${key}`).showModal()
                     } ><span>See More</span></button>
-                <Modal />
+                <Modal id ={key} name={name} desc={desc}/>
             </div>
         </div>
         </motion.div>

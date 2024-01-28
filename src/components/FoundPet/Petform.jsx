@@ -1,5 +1,48 @@
 import './foundpet.css';
+import { useFormik } from 'formik';
+import * as yup from "yup";
+
 export default function Petform() {
+
+    const MAX_FILE_SIZE = 102400; //100KB
+
+    const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] };
+
+    function isValidFileType(fileName, fileType) {
+    return fileName && validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1;
+    }
+
+    const onSubmit = (values, actions) => {
+        console.log(values);
+    }
+
+    const schema = yup.object().shape({
+        species:yup.string().required("Required"),
+        breed:yup.string().required("Required"),
+        color:yup.string().required("Required"),
+        addr:yup.string().required("Required"),
+        desc:yup.string().required("Required"),
+        image: yup
+            .mixed()
+            .required("Required")
+            .test("is-valid-type", "Not a valid image type",
+                value => isValidFileType(value && value.name.toLowerCase(), "image"))
+            .test("is-valid-size", "Max allowed size is 100KB",
+                value => value && value.size <= MAX_FILE_SIZE)
+    })
+    const formik = useFormik({
+        initialValues:{
+            species:"",
+            breed:"",
+            color:"",
+            addr:"",
+            image:undefined,
+            desc:""
+        },
+        validationSchema:schema,
+        onSubmit,
+    });
+    console.log(formik.errors);
     return (
         <div className="grid grid-cols-2 bg-white">
             <div className='p-8 '>
@@ -65,55 +108,75 @@ export default function Petform() {
                 </ul>
             </div>
             <div className='p-8'>
-                <form action="" className=' p-4 border-2 border-solid rounded-md shadow-2xl shadow-cyan-500/50'>
+                <form onSubmit={formik.handleSubmit} action="" className=' p-4 border-2 border-solid rounded-md shadow-2xl shadow-cyan-500/50' autoComplete='off'>
                     <div className='grid grid-cols-3 gap-x-2 gap-y-4 m-3'>
-                        <div className='col-span-2'>
-                            <label className="form-control w-full max-w-2xl "></label>
-                            <div className="label ">
-                                <span className="label-text">What is your name?</span>
-                            </div>
-                            <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-2xl" />
-
-                        </div>
-                        <div>
-                            <label className="form-control w-full max-w-xs"></label>
-                            <div className="label">
-                                <span className="label-text">Where did you found pet?</span>
-                            </div>
-                            <input type="text" placeholder="Location" className="input input-bordered w-full max-w-xs" />
-
-                        </div>
+                        
                         <div className='col-span-1'>
                             <label className="form-control w-full max-w-xs"></label>
                             <div className="label">
                                 <span className="label-text">Species</span>
                             </div>
-                            <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-
+                            <input 
+                            type="text" 
+                            placeholder="e.g, Dog" 
+                            id ="species"
+                            value={formik.values.species}
+                            onChange={formik.handleChange}
+                            className={formik.errors.species && formik.touched.species ? 
+                            "input input-bordered w-full max-w-xs border-2 border-rose-500/75"
+                            :"input input-bordered w-full max-w-xs"} />
+                            {formik.errors.species && formik.touched.species ? <p className='text-sm font-medium text-rose-500'>Required</p>
+                            :null}
                         </div>
                         <div className='col-span-2'>
                             <label className="form-control w-full max-w-2xl"> </label>
                             <div className="label">
                                 <span className="label-text">Breed</span>
                             </div>
-                            <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-2xl" />
-
-                        </div>
-                        <div>
-                            <label className="form-control w-full max-w-xs"> </label>
-                            <div className="label">
-                                <span className="label-text">Color</span>
-                            </div>
-                            <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-
+                            <input 
+                            type="text" 
+                            placeholder="e.g, Pitbull"
+                            id ="breed" 
+                            value={formik.values.breed}
+                            onChange={formik.handleChange}
+                            className={formik.errors.breed && formik.touched.breed 
+                            ?"input input-bordered w-full max-w-2xl border-2 border-rose-500/75":
+                            "input input-bordered w-full max-w-2xl"} />
+                            {formik.errors.breed && formik.touched.breed ? <p className='text-sm font-medium text-rose-500'>Required</p>
+                            :null}
                         </div>
                         <div className='col-span-2'>
                             <label className="form-control w-full max-w-2xl"></label>
                             <div className="label">
-                                <span className="label-text">Status</span>
+                                <span className="label-text">Where did you found pet?</span>
                             </div>
-                            <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-2xl" />
-
+                            <input type="text" 
+                            placeholder="e.g, Chennai,TN"
+                            id ="addr" 
+                            value={formik.values.addr}
+                            onChange={formik.handleChange}
+                            className={formik.errors.addr && formik.touched.addr
+                                ?"input input-bordered w-full max-w-2xl border-2 border-rose-500/75":
+                                "input input-bordered w-full max-w-2xl"} />
+                            {formik.errors.addr && formik.touched.addr ? <p className='text-sm font-medium text-rose-500'>Required</p>
+                            :null}
+                        </div>
+                        
+                        <div className='col-span-1'>
+                            <label className="form-control w-full max-w-xs"> </label>
+                            <div className="label">
+                                <span className="label-text">Color</span>
+                            </div>
+                            <input type="text" 
+                            placeholder="e.g, brown with black spots"
+                            id ="color"
+                            value={formik.values.color}
+                            onChange={formik.handleChange} 
+                            className={formik.errors.color && formik.touched.color 
+                                ?"input input-bordered w-full max-w-2xs border-2 border-rose-500/75":
+                                "input input-bordered w-full max-w-2xs"} />
+                                {formik.errors.color && formik.touched.color ? <p className='text-sm font-medium text-rose-500'>Required</p>
+                            :null}
                         </div>
                         <div className='col-span-3 '>
 
@@ -121,16 +184,29 @@ export default function Petform() {
                                 <div className="label">
                                     <span className="label-text">Dsecription</span>
                                 </div>
-                                <textarea className="textarea textarea-bordered textarea-xl w-full" placeholder="Bio"></textarea>
+                                <textarea 
+                                value={formik.values.desc}
+                                onChange={formik.handleChange}
+                                id ="desc"
+                                className={formik.errors.desc && formik.touched.desc ?
+                                    "textarea textarea-bordered textarea-xl w-full border-2 border-rose-500/75" :
+                                    "textarea textarea-bordered textarea-xl w-full" }
+                                placeholder="Add details about pet">
+                                </textarea>
                             </label>
+                            {formik.errors.desc && formik.touched.desc ? <p className='text-sm font-medium text-rose-500'>Required</p>
+                            :null}
                         </div>
                         <div className='col-span-2'>
                             <label className="form-control w-full max-w-2xl"> </label>
                             <div className="label">
                                 <span className="label-text">Image URL</span>
                             </div>
-                            <input type="file" className="file-input file-input-bordered file-input-primary w-full max-w-2xl" />
-
+                            <input type="file"
+                            id ="image"
+                            value={formik.values.image}
+                            onChange={formik.handleChange}
+                            className="file-input file-input-bordered file-input-primary w-full max-w-2xl" />
                         </div>
                     </div>
                     <button type="submit" className="btn btn-outline btn-success m-4">Submit</button>

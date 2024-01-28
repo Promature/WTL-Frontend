@@ -12,7 +12,7 @@ const stories = [
     owner:"Harry"
   },
   {
-    name: "Sullie",
+    name: "Arther",
     addr: "Vegas, LA",
     posted_date: "2 days aggo",
     desc: "If a dog chews shoes whose shoes does he choose? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, consectetur! Aliquid eos, voluptates nihil iste iusto tempora doloribus odio eaque reiciendis! Et quia hic ducimus culpa illo natus nihil sint?",
@@ -20,7 +20,7 @@ const stories = [
     owner:"Harry"
   },
   {
-    name: "Sullie",
+    name: "Jack",
     addr: "Vegas, LA",
     posted_date: "2 days aggo",
     desc: "If a dog chews shoes whose shoes does he choose? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, consectetur! Aliquid eos, voluptates nihil iste iusto tempora doloribus odio eaque reiciendis! Et quia hic ducimus culpa illo natus nihil sint?",
