@@ -6,6 +6,7 @@ import Signup from './routes/Signup.jsx'
 import FoundPet from './routes/FoundPet.jsx'
 import About from './routes/About.jsx'
 import Layout from './components/Layout.jsx';
+import LostPets from './routes/LostPets.jsx';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
                 <Route path="/success-stories" element={<SuccessStory />} />
                 <Route path="/found-pet" element={<FoundPet />} />
                 <Route path="/about" element={<About />} />
+                <Route path={'/lost-pets'} element={<LostPets />} />
               </Routes>
             </Layout>
           }

@@ -8,7 +8,7 @@ const Footer = () => {
             <p className="mt-5 font-bold text-xl">
             Pet-Reunite Ltd.<br/> <span className="text-lg font-semibold">Lost & Found: Restoring Tails and Tales.</span>
             </p> 
-            <p>Copyright © 2024 - All right reserved</p>
+            <p>Copyright &copy; {new Date().getFullYear()} - All right reserved</p>
         </aside> 
         <nav>
             <div className="grid grid-flow-col gap-4">

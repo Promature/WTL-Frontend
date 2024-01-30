@@ -27,13 +27,13 @@ export default function Navbar() {
               <a href="/">Homepage</a>
             </li>
             <li>
-              <a href="/found-pet">Found-Pet</a>
+              <a href="/found-pet">Found Pet</a>
             </li>
             <li>
-              <a href="/lost-pet">Lost-Pet</a>
+              <a href="/lost-pets">Lost Pet</a>
             </li>
             <li>
-              <a href="/success-stories">Success-Stories</a>
+              <a href="/success-stories">Success Stories</a>
             </li>
             <li>
               <a href="/about">About</a>
