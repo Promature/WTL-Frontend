@@ -10,15 +10,15 @@ export default function FoundPetHeader() {
                 </p>
             </div>
             <div className='p-14'>
-                <div className='flex justify-center align-center px-8'>
-                    <div className='w-3/4 h-64'>
+                <div className='text-center flex md:flex justify-center align-center px-8'>
+                    <div className='md:w-3/4 h-64'>
                         {/* <img className="h-64 w-11/12  rounded-md" src={petLogo} alt="petHeader__image" /> */}
                     </div>
                     <div className='flex items-center'>
                         <div className=''>
                         <h2 className="text-4xl font-black custom__hero-subtitle ">You have found someone&apos;s pet how can you help get them home quickly?</h2>
                         <p className='text-xl font-semibold py-4'>
-                        Spread the word! It’s the fastest way to ensure you bring a lost dog or pet back to their pack.
+                        Spread the word! It&apos;s the fastest way to ensure you bring a lost dog or pet back to their pack.
                         </p>
                         </div>
                     </div>

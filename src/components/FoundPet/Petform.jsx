@@ -1,19 +1,41 @@
 import './foundpet.css';
 import { useFormik } from 'formik';
+import { useState } from 'react';
 import * as yup from "yup";
 
 export default function Petform() {
 
-    const MAX_FILE_SIZE = 102400; //100KB
+    // const MAX_FILE_SIZE = 102400; //100KB
 
-    const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] };
+    // const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] };
 
-    function isValidFileType(fileName, fileType) {
-    return fileName && validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1;
+    // function isValidFileType(fileName, fileType) {
+    // return fileName && validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1;
+    // }
+    const [postImg,setPostImg] = useState('');
+    const convertBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(file)
+          fileReader.onload = () => {
+            resolve(fileReader.result);
+          }
+          fileReader.onerror = (error) => {
+            reject(error);
+          }
+        })
+      }
+    const handleFileRead =async(e) =>{
+        console.log(e.target.files);
+        const file = e.target.files[0];
+        const base64 = await convertBase64(file);
+        setPostImg(base64);
     }
 
     const onSubmit = (values, actions) => {
+        values.image = postImg;
         console.log(values);
+        // console.log(postImg);
     }
 
     const schema = yup.object().shape({
@@ -23,12 +45,12 @@ export default function Petform() {
         addr:yup.string().required("Required"),
         desc:yup.string().required("Required"),
         image: yup
-            .mixed()
-            .required("Required")
-            .test("is-valid-type", "Not a valid image type",
-                value => isValidFileType(value && value.name.toLowerCase(), "image"))
-            .test("is-valid-size", "Max allowed size is 100KB",
-                value => value && value.size <= MAX_FILE_SIZE)
+            .string()
+            // .required("Required")
+            // .test("is-valid-type", "Not a valid image type",
+            //     value => isValidFileType(value && value.name.toLowerCase(), "image"))
+            // .test("is-valid-size", "Max allowed size is 100KB",
+            //     value => value && value.size <= MAX_FILE_SIZE)
     })
     const formik = useFormik({
         initialValues:{
@@ -36,15 +58,15 @@ export default function Petform() {
             breed:"",
             color:"",
             addr:"",
-            image:undefined,
+            image:postImg,
             desc:""
         },
         validationSchema:schema,
         onSubmit,
     });
-    console.log(formik.errors);
+
     return (
-        <div className="grid grid-cols-2 bg-white">
+        <div className="md:grid grid-cols-2 bg-white">
             <div className='p-8 '>
                 <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                     <li>
@@ -205,13 +227,13 @@ export default function Petform() {
                             <input type="file"
                             id ="image"
                             value={formik.values.image}
-                            onChange={formik.handleChange}
+                            onChange={e => handleFileRead(e)}
                             className="file-input file-input-bordered file-input-primary w-full max-w-2xl" />
                         </div>
                     </div>
                     <button type="submit" className="btn btn-outline btn-success m-4">Submit</button>
                 </form>
-                <div className='custom__img flex place-content-center items-center'>
+                <div className='mt-4 custom__img flex place-content-center items-center'>
                 <div className=''>
                     <img src="https://cdn-icons-png.flaticon.com/256/12413/12413237.png" alt="cat__image" />
                 </div>
