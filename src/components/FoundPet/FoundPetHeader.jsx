@@ -1,6 +1,13 @@
+import { useEffect } from 'react';
 import './foundpet.css';
-import petLogo from '/Adopt a pet-amico.svg'
+// import petLogo from '/Adopt a pet-amico.svg'
+
 export default function FoundPetHeader() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className='bg-gray-50 custom__hero'>
             <div className=' text-center py-16 custom__hero-title'>

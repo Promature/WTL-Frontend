@@ -1,7 +1,12 @@
 import Carousel from "../components/Carousel"
 import RecentPets from "../components/RecentPets"
 import { motion } from 'framer-motion'
+import { useNavigate } from "react-router-dom";
+
 export default function Home() {
+
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="flex justify-center">
@@ -10,30 +15,37 @@ export default function Home() {
 
 
       {/* how we work */}
-      <div className="h-screen bg-blue-100">
-        <div className="text-center font-bold">
-          <h1 className="text-5xl pt-16">How We Work</h1>
-          <p className="py-8 text-2xl">blah blah blah</p>
+      <div className="h-full bg-blue-100 pb-5 md:py-10">
+        <div className="md:flex text-center font-bold justify-center">
+          <h1 className="text-5xl pt-32 text-center ">How We Work</h1>
+          <img className="w-[300px] ml-16 md:ml-32 hover:contrast-125" src="adopt-pet.png" alt="1" />
+        </div>
+
+        <div className="items-center">
         </div>
 
         {/* grid */}
-        <div className="pt-32">
-          <div className=" grid grid-cols-3 text-2xl">
-            <div className="place-self-center text-center">
-              <img className="" src="https://cdn-icons-png.flaticon.com/128/2447/2447831.png" alt="1" />
-              <h2>Step 1</h2>
-              <p>blah b;ah b;ah</p>
-            </div>
-            <div className="place-self-center text-center">
-              <img src="https://cdn-icons-png.flaticon.com/128/2447/2447831.png" alt="1" />
-              <h2>Step 2</h2>
-              <p>blah b;ah b;ah</p>
-            </div>
-            <div className="place-self-center text-center">
-              <img src="https://cdn-icons-png.flaticon.com/128/2447/2447831.png" alt="1" />
-              <h2>Step 3</h2>
-              <p>blah b;ah b;ah</p>
-            </div>
+        <div className="md:pt-12">
+          <div className="md:flex md:flex-cols-3 text-2xl md:gap-8 justify-center">
+              
+              <div className="text-center mb-10">
+                <img className="mx-auto hover:contrast-150" src="https://cdn-icons-png.flaticon.com/128/2447/2447831.png" alt="1" onClick={() => {navigate('/found-pet')}} />
+                <h2 className="font-bold text-2xl mt-4 mb-2 hover:cursor-pointer hover:text-blue-800" onClick={() => {navigate('/found-pet')}}>Report a Found Pet</h2>
+                <p className="text-justify mx-8">Users who have found a lost pet can report it on the website by providing details such as where and when it was found, its description, and any other relevant information.</p>
+              </div>
+
+              <div className="text-center mb-10">
+                <img className="mx-auto hover:contrast-150" src="https://cdn-icons-png.flaticon.com/128/2447/2447831.png" alt="1" onClick={() => {navigate('/lost-pets')}} />
+                <h2 className="font-bold text-2xl mt-4 mb-2 hover:cursor-pointer hover:text-blue-800" onClick={() => {navigate('/lost-pets')}}>Search Found Pets</h2>
+                <p className="text-justify mx-8">Users can browse or search through listings of found pets. They can filter the search results based on various criteria such as species, breed, color, and distance from their location.</p>
+              </div>
+
+              <div className="text-center mb-10">
+                <img className="mx-auto hover:contrast-150" src="https://cdn-icons-png.flaticon.com/128/2447/2447831.png" alt="1" onClick={() => {navigate('/success-stories')}} />
+                <h2 className="font-bold text-2xl mt-4 mb-2 hover:cursor-pointer hover:text-blue-800" onClick={() => {navigate('/success-stories')}}>Reunion Stories</h2>
+                <p className="text-justify mx-8">Users can share success stories of lost pets being reunited with their owners through the website, providing hope and encouragement to others.</p>
+              </div>
+
           </div>
         </div>
 

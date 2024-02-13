@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import Card from '../components/success-stories/Card';
 import StoriesHeading from '../components/success-stories/StoriesHeading';
 
@@ -39,6 +39,10 @@ const stories = [
 
 
 export default function SuccessStory() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
