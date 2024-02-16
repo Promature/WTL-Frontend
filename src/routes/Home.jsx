@@ -1,6 +1,6 @@
 import Carousel from "../components/Carousel"
 import RecentPets from "../components/RecentPets"
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -48,12 +48,12 @@ export default function Home() {
 
           </div>
         </div>
-
       </div>
+
       {/* recently uploaded pets */}
 
       <div className="my-6">
-        <div className="ml-4 pb-6 font-semibold text-4xl">
+        <div className="font-bold text-4xl text-center">
           Recently Added Pets
         </div>
         <div className="carousel w-full">
@@ -79,7 +79,7 @@ export default function Home() {
       </div>
 
       {/* general info */}
-      <div className="my-4">
+      {/* <div className="my-4">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -141,7 +141,9 @@ export default function Home() {
           </div>
         </div>
       </motion.div>
-      </div>
+      </div> */}
+
+
     </>
   )
 }

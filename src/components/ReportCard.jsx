@@ -6,7 +6,7 @@ const ReportCard = () => {
         <h2 className="card-title font-bold">Species -<span className="text-blue-800">Breed</span></h2>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div className="card-actions justify-end">
-            <button className="btn btn-primary font-bold text-white text-lg">Claimed</button>
+            <button className="btn btn-primary font-bold text-white text-lg">Returned</button>
         </div>
     </div>
     </div>
