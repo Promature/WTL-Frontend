@@ -1,8 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import loginSVG from '/Fingerprint-rafiki.svg'
 import { useFormik } from "formik";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as yup from 'yup'
+import axios from 'axios';
+
 const schema = yup.object().shape({
   email:yup.string().email("Enter a valid email address").required('This field is required'),
   password:yup.string().min(4,"Must be at least 4 character").max(20,"Must be at most 20 characters").required('Password required'),
@@ -12,6 +14,9 @@ const schema = yup.object().shape({
   address:yup.string().required("Please enter address")
 })
 export default function Signup() {
+
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -23,7 +28,16 @@ export default function Signup() {
     },
     validationSchema:schema,
     onSubmit:values=>{
+     
       console.log(JSON.stringify(values,null,2))
+
+      axios.post('http://localhost:3001/signup',values).then(function (response) {
+        console.log(response);
+        navigate('/login')
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
   });
   return (

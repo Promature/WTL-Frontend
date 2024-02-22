@@ -1,5 +1,6 @@
 import LostPetModal from "./LostPetModal";
-
+import { useState,useEffect } from "react";
+import axios from "axios";
 /**
  * ,species,breed,color,address,description,image_url
  */
@@ -81,10 +82,27 @@ const lostPetsArray = [
 ];
 
 export default function LostPetsGrid() {
+
+  const [lostPets,setLostPets] = useState([]);
+  const getPets = async () =>{
+    try {
+      const data = await axios.get('http://localhost:3001/allpets');
+      setLostPets(data);
+    } catch (error) {
+      console.log("Error fetching pets:", error);
+    }
+    
+
+  }
+
+  useEffect(()=>{
+    getPets();
+    console.log(lostPets);
+  },[]);
   return (
     <section>
       <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-4 my-4">
-        {lostPetsArray.map((item, index) => (
+        {lostPets.map((item, index) => (
           <div key={index} className="card w-96 bg-base-100 shadow-xl m-4">
             <figure>
               <img
