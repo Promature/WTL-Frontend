@@ -2,7 +2,7 @@
 import {motion} from 'framer-motion'
 import Modal from '../Modal'
 
-export default function Card({id,name, addr, posted_date,desc,img}) {
+export default function Card({id,breed, species, addr ,desc, img, color}) {
     return (
         <motion.div
         initial="hidden"
@@ -15,23 +15,23 @@ export default function Card({id,name, addr, posted_date,desc,img}) {
         }}
       >
         <div className="card card-compact w-96 bg-base-100 shadow-xl flex justify-self-center my-4">
-            <figure><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww" alt="Shoes" /></figure>
+            <figure><img src={img} /></figure>
             <div className="card-body">
                 <div className='flex justify-between'>
                     <div>
-                        <h3 className='card-title'>{name}</h3>
-                        <h4>{addr}</h4>
+                        <h3 className='card-title'>{species}</h3>
+                        <h4>{breed}, {color}</h4>
                     </div>
                     <div>
-                        <h4>{posted_date}</h4>
+                        <h4>{addr}</h4>
                     </div>
                 </div>
-                <p>{desc.slice(0,200)}...</p>
+                <p>{desc}...</p>
                 <button className="btn hover:text-blue-700 hover:bg-blue-200 hover:font-bold" 
                 onClick={
                     ()=> document.getElementById(`${id}`).showModal()
                     } ><span>See More</span></button>
-                <Modal id ={id} name={name} desc={desc} addr={addr} posted_date={posted_date}/>
+                <Modal id ={id} name={species} desc={desc} addr={addr}/>
             </div>
         </div>
         </motion.div>

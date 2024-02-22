@@ -18,8 +18,16 @@ export default function Login() {
     },
     validationSchema:schema,
     onSubmit:values=>{
-      console.log(JSON.stringify(values,null,2))
-      axios.post('http://localhost:3001/login',values).then(function (response) {
+      // console.log(JSON.stringify(values,null,2))
+      axios.post('http://localhost:3001/login',values,{
+        withCredentials:true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
+        credentials: 'include'
+      }).then(function (response) {
         console.log(response);
         navigate('/');
       })
