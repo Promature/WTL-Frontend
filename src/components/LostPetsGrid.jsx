@@ -86,8 +86,10 @@ export default function LostPetsGrid() {
   const [lostPets,setLostPets] = useState([]);
   const getPets = async () =>{
     try {
-      const data = await axios.get('http://localhost:3001/allpets');
-      setLostPets(data);
+      const res = await axios.get('http://localhost:3001/allpets',{
+        withCredentials:true,
+      });
+      setLostPets(res.data);
     } catch (error) {
       console.log("Error fetching pets:", error);
     }
@@ -111,7 +113,7 @@ export default function LostPetsGrid() {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">Shoes!</h2>
+              <h2 className="card-title">{item.species}</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
               <div className="card-actions justify-end">
                 <button

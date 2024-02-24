@@ -2,6 +2,7 @@ import './foundpet.css';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import * as yup from "yup";
+import axios from "axios";
 
 export default function Petform() {
 
@@ -36,6 +37,13 @@ export default function Petform() {
         values.image = postImg;
         console.log(values);
         // console.log(postImg);
+        axios.post('http://localhost:3001/foundpet',values,{
+            withCredentials:true,
+        }).then((response)=>{
+            console.log(response);
+            console.log("New pet added");
+        })
+        .catch(err=>console.log(err));
     }
 
     const schema = yup.object().shape({
