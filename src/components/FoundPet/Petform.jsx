@@ -65,6 +65,8 @@ export default function Petform() {
         })
         .catch(err=>console.log(err));
         setDisable(true);
+        alert("New pet added")
+        window.location.reload();
     }
 
     const schema = yup.object().shape({
