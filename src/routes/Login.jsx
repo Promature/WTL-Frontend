@@ -29,7 +29,7 @@ export default function Login() {
         credentials: 'include'
       }).then(function (response) {
         console.log(response);
-        navigate('/');
+        navigate('/home');
       })
       .catch(function (error) {
         console.log(error);

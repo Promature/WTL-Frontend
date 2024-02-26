@@ -1,3 +1,4 @@
+// import { useEffect } from "react";
 import Carousel from "../components/Carousel"
 import RecentPets from "../components/RecentPets"
 // import { motion } from 'framer-motion'

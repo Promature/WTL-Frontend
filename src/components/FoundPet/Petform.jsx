@@ -1,40 +1,60 @@
 import './foundpet.css';
 import { useFormik } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as yup from "yup";
 import axios from "axios";
+import { storage } from '../../firebase'; // Import the Firebase instance
+import {v4} from 'uuid';
+import { getDownloadURL, uploadBytes } from 'firebase/storage';
+import { ref } from 'firebase/storage';
 
 export default function Petform() {
 
-    // const MAX_FILE_SIZE = 102400; //100KB
+    const [imageUpload, setImageUpload] = useState(null);
+    const [imageUrl, setImageUrl] = useState(); 
+    const [disable, setDisable] = useState(true);
 
-    // const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] };
-
-    // function isValidFileType(fileName, fileType) {
-    // return fileName && validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1;
-    // }
-    const [postImg,setPostImg] = useState('');
-    const convertBase64 = (file) => {
-        return new Promise((resolve, reject) => {
-          const fileReader = new FileReader();
-          fileReader.readAsDataURL(file)
-          fileReader.onload = () => {
-            resolve(fileReader.result);
-          }
-          fileReader.onerror = (error) => {
-            reject(error);
-          }
-        })
-      }
-    const handleFileRead =async(e) =>{
-        console.log(e.target.files);
-        const file = e.target.files[0];
-        const base64 = await convertBase64(file);
-        setPostImg(base64);
+    const handleChange = (e) => {
+        e.preventDefault();
+        setImageUpload(e.target.files[0]);
+        setTimeout(() => {
+            console.log("handleChange");
+        }, 1000*5);
     }
+    
+    useEffect(() => {
+        if (imageUpload) {
+            const timerId = setTimeout(() => {
+                console.log("Image upload handled after 5 seconds");
+                handleUpload();
+            }, 5000);
 
-    const onSubmit = (values, actions) => {
-        values.image = postImg;
+            return () => clearTimeout(timerId);
+        }
+    }, [imageUpload]);
+
+    const handleUpload = () => {
+        
+        const imageName = `images/${imageUpload.name + v4()}`;
+        const imageRef = ref(storage, imageName);
+        console.log(imageName);
+        uploadBytes(imageRef, imageUpload).then((snapshot) => {
+            getDownloadURL(snapshot.ref).then((downloadURL) => {
+                console.log('File available at', downloadURL);
+                setImageUrl(downloadURL);
+            })
+        });
+        setTimeout(() => {
+            setDisable(false);
+        }, 1000*5);
+
+    };
+    
+    
+    
+    const onSubmit = async(values) => {
+
+        values.image_url = imageUrl;
         console.log(values);
         // console.log(postImg);
         axios.post('http://localhost:3001/foundpet',values,{
@@ -44,6 +64,7 @@ export default function Petform() {
             console.log("New pet added");
         })
         .catch(err=>console.log(err));
+        setDisable(true);
     }
 
     const schema = yup.object().shape({
@@ -66,7 +87,7 @@ export default function Petform() {
             breed:"",
             color:"",
             addr:"",
-            image:postImg,
+            image:"",
             desc:""
         },
         validationSchema:schema,
@@ -235,11 +256,11 @@ export default function Petform() {
                             <input type="file"
                             id ="image"
                             value={formik.values.image}
-                            onChange={e => handleFileRead(e)}
+                            onChange={(e) => handleChange(e)}
                             className="file-input file-input-bordered file-input-primary w-full max-w-2xl" />
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-outline btn-success m-4">Submit</button>
+                    <button type="submit" disabled={disable} onClick={handleUpload} className="btn btn-outline btn-success m-4">Submit</button>
                 </form>
                 <div className='mt-4 custom__img flex place-content-center items-center'>
                 <div className=''>

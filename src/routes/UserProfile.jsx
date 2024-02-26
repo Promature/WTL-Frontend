@@ -1,6 +1,31 @@
+import axios from "axios"
 import ReportCard from "../components/ReportCard"
+import { useEffect, useState } from "react"
 
 const UserProfile = () => {
+  
+  const [myReports, setMyReports] = useState([])
+
+  const fetchReports = async () => {
+    try {
+      const res = await axios.get("http://localhost:3001/reportedPets",{
+        withCredentials: true,
+        // headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'},
+        // credentials: 'include'
+      });
+      console.log(res.data.data);
+      setMyReports(res.data.data);
+    } catch (error) {
+      console.error("Error fetching reports:", error);
+    }
+  }
+
+  useEffect(() => {
+    fetchReports();
+  }, []); 
+  
+  
+  
   return (
     <div className="" >
 
@@ -8,15 +33,16 @@ const UserProfile = () => {
             Your Reports 
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
-
-            <ReportCard />
-            <ReportCard />
-            <ReportCard />
-            <ReportCard />
-
+        <div className="md:grid md:grid-cols-3 gap-4">
+        {myReports && myReports.map((report, idx) => {
+          return (
+            <ReportCard key={idx} species={report.species} breed={report.breed} address={report.address} _id={report._id} status={report.status} />
+          )
+        })}
+      
         </div>  
     </div>
   )
 }
-export default UserProfile
+
+export default UserProfile;
