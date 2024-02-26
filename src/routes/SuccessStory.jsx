@@ -40,7 +40,7 @@ export default function SuccessStory() {
             {story && 
               story.map((story, ind) => (
                 <Card key={ind} id={`modal_${ind}`} breed={story.breed} species={story.species} addr={story.address}
-                  color={story.color} desc={story.description} />
+                  color={story.color} desc={story.description} img={story.image_url} />
               ))
             }
           </div>

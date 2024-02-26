@@ -14,12 +14,12 @@ const handleOwner = async ({id}) => {
   }
 }
 
-const ReportCard = ({species, breed, address, _id, status}) => {
+const ReportCard = ({species, breed, address, _id, status, image_url}) => {
 
 
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl m-10 ml-[20px] md:ml-10">
-    <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+    <figure><img src={image_url} alt="pet-img" /></figure>
     <div className="card-body">
         <h2 className="text-lg font-bold">Species - <span className='text-blue-700'>{species}</span> | Breed - <span className='text-blue-700'>{breed}</span></h2>
         <p className='font-semibold text-md'>Address : {address}</p>
@@ -36,7 +36,8 @@ ReportCard.propTypes = {
   breed: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired
+  status: PropTypes.string.isRequired,
+  image_url: PropTypes.string.isRequired
 };
 
 export default ReportCard

@@ -19,13 +19,13 @@ export default function Petform() {
         setImageUpload(e.target.files[0]);
         setTimeout(() => {
             console.log("handleChange");
-        }, 1000*5);
+        }, 1000*10);
     }
     
     useEffect(() => {
         if (imageUpload) {
             const timerId = setTimeout(() => {
-                console.log("Image upload handled after 5 seconds");
+                console.log("Image upload handled after 10 seconds");
                 handleUpload();
             }, 5000);
 
@@ -251,7 +251,7 @@ export default function Petform() {
                         <div className='col-span-2'>
                             <label className="form-control w-full max-w-2xl"> </label>
                             <div className="label">
-                                <span className="label-text">Image URL</span>
+                                <span className="label-text">Pet Image<br /><span className='text-red-500'>Upload Image Under 500KB</span></span>
                             </div>
                             <input type="file"
                             id ="image"

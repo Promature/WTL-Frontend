@@ -36,7 +36,7 @@ const UserProfile = () => {
         <div className="md:grid md:grid-cols-3 gap-4">
         {myReports && myReports.map((report, idx) => {
           return (
-            <ReportCard key={idx} species={report.species} breed={report.breed} address={report.address} _id={report._id} status={report.status} />
+            <ReportCard key={idx} species={report.species} breed={report.breed} address={report.address} _id={report._id} status={report.status} image_url={report.image_url} />
           )
         })}
       
