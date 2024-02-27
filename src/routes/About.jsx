@@ -14,7 +14,7 @@ const About = () => {
                 <h1 className="mb-5 text-4xl font-bold">Who is Pet-Reunite</h1>
                 <hr className="mb-5" />
                 <p className="mb-5">Pet-Reunite is people helping cats, dogs and wild animals go home and thrive – whether home is the family room or the forest. We do this by rehabilitating orphaned and injured wildlife, sheltering and adopting homeless cats and dogs, and educating the community to inspire compassionate action for animals.<br /><br />Since 2024, Pet-Reunite has united more than 130,000 cats and dogs with loving families, cared for more than 140,000 sick, injured and orphaned wild animals, and made the world a better place for countless others through outreach, education and advocacy.</p>
-                <Link to={'/'} className="btn glass text-lg">Learn More</Link>
+                <Link to={'/home'} className="btn glass text-lg">Learn More</Link>
             </div>
             </div>
         </div>
