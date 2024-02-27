@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-
+import Kedar from "/Kedar.jpg";
+import more from "/more.jpg";
+import samarth from "/samarth.jpeg";
 const About = () => {
   return (
     <div className="min-h-screen">
@@ -31,7 +33,7 @@ const About = () => {
                 <div>
                     <div className="w-full avatar justify-center">
                         <div className="w-48 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            <img src={more} />
                         </div>
                     </div>
                     <div className="">
@@ -48,7 +50,7 @@ const About = () => {
                 <div>
                     <div className="w-full avatar justify-center">
                         <div className="w-48 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            <img src={samarth} />
                         </div>
                     </div>
                     <div className="">
@@ -65,7 +67,7 @@ const About = () => {
                 <div>
                     <div className="w-full avatar justify-center">
                         <div className="w-48 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            <img src={Kedar} />
                         </div>
                     </div>
                     <div className="">
