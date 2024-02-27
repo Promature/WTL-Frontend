@@ -41,7 +41,7 @@ export default function Signup() {
         credentials: 'include'
       }).then(function (response) {
         console.log(response);
-        navigate('/login')
+        navigate('/')
       })
       .catch(function (error) {
         console.log(error);
@@ -147,7 +147,7 @@ export default function Signup() {
           <div className='mt-2'>
             <span>
               Already have an account? 
-              <Link to={'/login'} className='text-blue-700 font-semibold hover:text-blue-500'> Log In</Link>
+              <Link to={'/'} className='text-blue-700 font-semibold hover:text-blue-500'> Log In</Link>
             </span>
           </div>
         </form>

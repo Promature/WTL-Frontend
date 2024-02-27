@@ -26,7 +26,7 @@ export default function Card({id,breed, species, addr ,desc, img, color}) {
                         <h4>{addr}</h4>
                     </div>
                 </div>
-                <p>{desc}...</p>
+                <p>{desc.substring(0,200)}...</p>
                 <button className="btn hover:text-blue-700 hover:bg-blue-200 hover:font-bold" 
                 onClick={
                     ()=> document.getElementById(`${id}`).showModal()

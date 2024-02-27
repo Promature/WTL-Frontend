@@ -4,7 +4,7 @@ const Footer = () => {
     
     <footer className="footer footer-center p-10 bg-blue-300 text-primary-content ">
         <aside>
-            <a href="/" className="w-[50%] md:w-[15%] hover:cursor-pointer"><img alt="logo" src="/logo-no-background.svg" /></a>
+            <a href="/home" className="w-[50%] md:w-[15%] hover:cursor-pointer"><img alt="logo" src="/logo-no-background.svg" /></a>
             <p className="mt-5 font-bold text-xl">
             Pet-Reunite Ltd.<br/> <span className="text-lg font-semibold">Lost & Found: Restoring Tails and Tales.</span>
             </p> 

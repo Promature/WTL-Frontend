@@ -1,13 +1,35 @@
-// import { useEffect } from "react";
+import { useState,useEffect } from "react";
 import Carousel from "../components/Carousel"
 import RecentPets from "../components/RecentPets"
 // import { motion } from 'framer-motion'
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Home() {
-
+  const [pets, setPets] = useState([]);
   const navigate = useNavigate();
 
+  const getPets = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/allpets",
+      {
+        withCredentials: true,
+      });
+      if(response.data.length > 5) {
+        setPets(response.data.slice(0, 5));
+      }
+      else {
+        setPets(response.data);
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+
+  useEffect(() => {
+    getPets();
+    console.log(pets)
+  }, []);
   return (
     <>
       <div className="flex justify-center">
@@ -58,24 +80,16 @@ export default function Home() {
           Recently Added Pets
         </div>
         <div className="carousel w-full">
-          <div id="item1" className="carousel-item">
-            <RecentPets />
-          </div>
-          <div id="item2" className="carousel-item">
-            <RecentPets />
-          </div>
-          <div id="item4" className="carousel-item">
-            <RecentPets />
-          </div>
-          <div id="item4" className="carousel-item">
-            <RecentPets />
-          </div>
-          <div id="item4" className="carousel-item">
-            <RecentPets />
-          </div>
-          <div id="item4" className="carousel-item">
-            <RecentPets />
-          </div>
+          {
+            pets && pets.map((pet, index) => {
+              return (
+                <div id={`${index}`} key={index} className="carousel-item">
+                  <RecentPets pet={pet}/>
+                </div>
+              );
+            })
+          }
+          
         </div>
       </div>
 
