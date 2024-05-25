@@ -1,13 +1,14 @@
 import {CgProfile} from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
+import instance from "../api/axios";
 
 export default function Navbar() {
-
+  
   const navigate = useNavigate();
 
-  const Logout = () => {
+  const Logout = async () => {
     
-    fetch('http://localhost:3001/logout', {
+    await instance('/logout', {
       method: 'GET',
       credentials: 'include',
       headers: {

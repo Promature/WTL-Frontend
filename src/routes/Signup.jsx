@@ -3,7 +3,7 @@ import loginSVG from '/Fingerprint-rafiki.svg'
 import { useFormik } from "formik";
 import { Link, useNavigate } from 'react-router-dom';
 import * as yup from 'yup'
-import axios from 'axios';
+import instance from '../api/axios';
 
 const schema = yup.object().shape({
   email:yup.string().email("Enter a valid email address").required('This field is required'),
@@ -31,7 +31,7 @@ export default function Signup() {
      
       console.log(JSON.stringify(values,null,2))
 
-      axios.post('http://localhost:3001/signup',values,{
+      instance.post('/signup',values,{
         withCredentials:true,
         headers: {
           'Content-Type': 'application/json',

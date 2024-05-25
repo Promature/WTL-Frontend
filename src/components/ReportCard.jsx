@@ -1,9 +1,9 @@
-import axios from 'axios';
 import PropTypes from 'prop-types';
+import instance from '../api/axios';
 
 const handleOwner = async ({id}) => {
   try {
-    const res = await axios.put(`http://localhost:3001/claimedPet/${id}`, {}, {withCredentials: true});
+    const res = await instance.put(`https://wtl-backend.onrender.com/claimedPet/${id}`, {}, {withCredentials: true, credentials: 'include'});
     // console.log(res)
     if(res){
       window.location.reload()

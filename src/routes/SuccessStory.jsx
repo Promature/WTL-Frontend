@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
 import Card from '../components/success-stories/Card';
 import StoriesHeading from '../components/success-stories/StoriesHeading';
-import axios from "axios"
+import instance from '../api/axios';
 
 export default function SuccessStory() {
   const [story,setStory] =useState();
 
   const getStories = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/stories",{
+      const res = await instance.get("/stories",{
         withCredentials: true,
-        // headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'},
-        // credentials: 'include'
+        headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'},
+        credentials: 'include'
       });
       console.log(res.data);
       setStory(res.data);

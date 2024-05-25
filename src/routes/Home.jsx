@@ -3,7 +3,7 @@ import Carousel from "../components/Carousel"
 import RecentPets from "../components/RecentPets"
 // import { motion } from 'framer-motion'
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import instance from "../api/axios";
 
 export default function Home() {
   const [pets, setPets] = useState([]);
@@ -11,9 +11,15 @@ export default function Home() {
 
   const getPets = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/allpets",
+      const response = await instance.get('/allpets',
       {
         withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
+        credentials: 'include'
       });
       if(response.data.length > 5) {
         setPets(response.data.slice(0, 5));

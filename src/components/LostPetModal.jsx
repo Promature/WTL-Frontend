@@ -6,8 +6,8 @@
  * @param {LostPetModalProps} props
  */
 
-import axios from "axios";
 import { useEffect, useState } from "react";
+import instance from "../api/axios";
 
 export default function LostPetModal({ description, index, reporter }) {
 
@@ -16,7 +16,7 @@ export default function LostPetModal({ description, index, reporter }) {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/contactreporter/${reporter}`, {
+        const res = await instance.get(`/contactreporter/${reporter}`, {
           withCredentials: true,
           headers: {
             "Content-Type": "application/json",

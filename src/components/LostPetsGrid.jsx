@@ -1,6 +1,6 @@
 import LostPetModal from "./LostPetModal";
 import { useState,useEffect } from "react";
-import axios from "axios";
+import instance from "../api/axios";
 /**
  * ,species,breed,color,address,description,image_url
  */
@@ -10,7 +10,7 @@ export default function LostPetsGrid() {
   const [lostPets,setLostPets] = useState([]);
   const getPets = async () =>{
     try {
-      const res = await axios.get('http://localhost:3001/allpets',{
+      const res = await instance.get('/allpets',{
         withCredentials:true,
       });
       setLostPets(res.data);

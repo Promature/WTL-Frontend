@@ -2,11 +2,11 @@ import './foundpet.css';
 import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import * as yup from "yup";
-import axios from "axios";
 import { storage } from '../../firebase'; // Import the Firebase instance
 import {v4} from 'uuid';
 import { getDownloadURL, uploadBytes } from 'firebase/storage';
 import { ref } from 'firebase/storage';
+import instance from '../../api/axios';
 
 export default function Petform() {
 
@@ -56,9 +56,9 @@ export default function Petform() {
 
         values.image_url = imageUrl;
         console.log(values);
-        // console.log(postImg);
-        axios.post('http://localhost:3001/foundpet',values,{
+        instance.post('/foundpet',values,{
             withCredentials:true,
+            credentials: 'include',
         }).then((response)=>{
             console.log(response);
             console.log("New pet added");
