@@ -1,6 +1,6 @@
-import axios from "axios"
 import ReportCard from "../components/ReportCard"
 import { useEffect, useState } from "react"
+import instance from "../api/axios"
 
 const UserProfile = () => {
   
@@ -8,10 +8,10 @@ const UserProfile = () => {
 
   const fetchReports = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/reportedPets",{
+      const res = await instance.get("/reportedPets",{
         withCredentials: true,
-        // headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'},
-        // credentials: 'include'
+        headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'},
+        credentials: 'include'
       });
       console.log(res.data.data);
       setMyReports(res.data.data);
