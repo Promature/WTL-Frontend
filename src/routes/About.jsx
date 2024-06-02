@@ -3,8 +3,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import Kedar from "/Kedar.jpg";
 import more from "/more.jpg";
-import samarth from "/samarth.jpeg";
-const About = () => {
+import samarth from "/samarth.jpeg";const About = () => {
   return (
     <div className="min-h-screen">
 
