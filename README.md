@@ -22,10 +22,10 @@
 ### Installation Steps
 ```sh
 # Clone the repository
-git clone https://github.com/yourusername/pet-reunite-frontend.git
+git clone https://github.com/Promature/WTL-Frontend.git
 
 # Navigate to the project directory
-cd pet-reunite-frontend
+cd WTL-Frontend
 
 # Install dependencies
 npm install
