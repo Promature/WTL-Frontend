@@ -38,12 +38,17 @@ Open your browser and navigate to http://localhost:5173
 ## Features
 
 
-  ### Register Found Pets: 
-    Users can register pets they have found under the "Found Pet" tab.
-  ### Search Lost Pets: 
-    Users can search for lost pets in the "Lost Pet" tab.
-  ### Share Success Stories: 
-    Happy users can mail their success stories to be shared in the "Success Stories" tab.
+### Register Found Pets: 
+
+  Users can register pets they have found under the "Found Pet" tab.
+  
+### Search Lost Pets: 
+
+  Users can search for lost pets in the "Lost Pet" tab.
+  
+### Share Success Stories: 
+
+  Happy users can mail their success stories to be shared in the "Success Stories" tab.
     
 ## Contributing
 
@@ -63,8 +68,8 @@ Open your browser and navigate to http://localhost:5173
 
 ## Contact
 
-  Kedar Pawar - pawarkedar363@gmail.com
-  Samarth Mali - 
-  Aditya More - 
+- Kedar Pawar - pawarkedar363@gmail.com
+- Samarth Mali - 
+- Aditya More - 
 
-## Project Link: https://wtl-frontend.vercel.app/
+Project Link: https://wtl-frontend.vercel.app/
